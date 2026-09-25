@@ -2,16 +2,18 @@ import React from 'react';
 
 const NavBar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm py-4">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                    </div>
-                    <ul
-                        tabIndex={-1}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
+        <div className=" bg-base-100 shadow-sm font-bold py-4">
+            <div className='navbar container mx-auto'>
+
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        </div>
+                        <ul
+                            tabIndex={-1}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            {/* <li><a>Item 1</a></li>
                         <li>
                             <a>Parent</a>
                             <ul className="p-2">
@@ -19,20 +21,23 @@ const NavBar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li><a>Item 3</a></li> */}
+                            <li><button className='px-8'>Workouts</button></li>
+                            <li><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></li>
+                        </ul>
+                    </div>
+                    <a className="btn btn-ghost text-xl">FITLOG</a>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
+                        <li><button className='px-8'>Workouts</button></li>
+                        <li><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">FITLOG</a>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><button className='px-8'>Workouts</button></li>
-                    <li><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></li>
-                </ul>
-            </div>
-            <div className="navbar-end flex gap-3 mr-5">
-                <button className="flex items-center gap-2">Plan <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>1</div></button>
-                <button className="flex items-center gap-2">Save <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>2</div></button>
+                <div className="navbar-end flex gap-3 mr-5">
+                    <button className="flex items-center gap-2">Plan <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>1</div></button>
+                    <button className="flex items-center gap-2">Save <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>2</div></button>
+                </div>
             </div>
         </div>
     );

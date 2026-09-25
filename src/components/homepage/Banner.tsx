@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         // <section className='container mx-auto'>
 
-        <div className='container mx-auto font-bold flex justify-between items-center border border-gray-700 bg-[#15171d] rounded-2xl p-10 my-10'>
+        <div className='container mx-auto font-bold flex justify-between items-center border border-gray-800 bg-[#15171d] rounded-2xl px-10 py-15 my-10'>
             <div className='max-w-155'>
                 <p className='text-[#c2f800] text-[11px]'>WORKOUT LIBRARY</p>
                 <h2 className='text-[60px]'>TRAIN WITH INTENT. LOG EVERY SET.</h2>
