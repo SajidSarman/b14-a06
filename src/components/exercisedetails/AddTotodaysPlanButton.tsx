@@ -7,11 +7,12 @@ import React, { useContext } from 'react';
 const AddTotodaysPlanButton = ({exercise}: {exercise: Icard}) => {
 
     const {exercisePlan, setExercisePlan} = useContext(ExerciseContext)
-    // console.log(exerciseProvider, "ep");
 
     const handlePlanExercise = () => {
-        console.log("blablallakkkajakp", exercise)
+        // console.log("blablallakkkajakp", exercise)
         setExercisePlan([...exercisePlan, exercise])
+        
+        alert(`${exercise.name} added to plan`)
     }
 
     return (

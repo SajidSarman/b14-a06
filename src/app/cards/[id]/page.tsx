@@ -1,4 +1,5 @@
 import AddTotodaysPlanButton from '@/components/exercisedetails/AddTotodaysPlanButton';
+import SaveForLaterButton from '@/components/exercisedetails/SaveForLaterButton';
 import { Icard } from '@/typs/card';
 import Image from 'next/image';
 import React from 'react';
@@ -103,9 +104,7 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
 
                     <div className="flex flex-wrap items-center justify-start gap-3 text-sm mt-4">
                         <AddTotodaysPlanButton exercise={exercise}></AddTotodaysPlanButton>
-                        <button className=" bg-[#21262d] border border-gray-700 text-gray-300 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#30363d] cursor-pointer transition-colors">
-                            <FaRegBookmark /> Save for later
-                        </button>
+                        <SaveForLaterButton exercise={exercise} ></SaveForLaterButton>
                     </div>
 
                 </div>

@@ -4,18 +4,20 @@ import React, { createContext, ReactNode, useState } from 'react';
 
 export const ExerciseContext = createContext({})
 
-const ExerciseProvider = ({children}: {children: ReactNode}) => {
+const ExerciseProvider = ({ children }: { children: ReactNode }) => {
     const [exercisePlan, setExercisePlan] = useState([])
     const [exerciseSave, setExerciseSave] = useState([])
 
     const sharedData = {
-        exercisePlan, 
+        exercisePlan,
         setExercisePlan,
-        exerciseSave, 
+        exerciseSave,
         setExerciseSave,
     }
 
-    return <ExerciseContext.Provider value={sharedData}>{children}</ExerciseContext.Provider>;
+    return (
+        <ExerciseContext.Provider value={sharedData}>{children}</ExerciseContext.Provider>
+    );
 };
 
 export default ExerciseProvider;
