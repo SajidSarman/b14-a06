@@ -1,7 +1,10 @@
+import { ExerciseContext } from '@/context/ExerciseContext';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 
 const NavBar = () => {
+    // const {exercisePlan, exerciseSave} = useContext(ExerciseContext)
+
     return (
         <div className=" bg-base-100 shadow-sm font-bold py-4">
             <div className='navbar container mx-auto'>
@@ -23,21 +26,21 @@ const NavBar = () => {
                             </ul>
                         </li>
                         <li><a>Item 3</a></li> */}
-                            <li><button className='px-8'>Workouts</button></li>
-                            <li><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></li>
+                            <li><Link href={"/"} className='px-8'>Workouts</Link></li>
+                            <li><Link href={"/my-plan/"} className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</Link></li>
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">FITLOG</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><button className='px-8'>Workouts</button></li>
-                        <li><Link href={"/my-plan/"}><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></Link></li>
+                        <li><Link href={"/"} className='px-8'>Workouts</Link></li>
+                        <li><Link href={"/my-plan/"} className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-3 mr-5">
-                    <button className="flex items-center gap-2">Plan <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>1</div></button>
-                    <button className="flex items-center gap-2">Save <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>2</div></button>
+                    <Link href={"/my-plan/"} className="flex items-center gap-2">Plan <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>1</div></Link>
+                    <Link href={"/my-plan/"} className="flex items-center gap-2">Save <div className='flex items-center justify-center bg-[#a3e635] text-black w-6 h-6 rounded-full'>2</div></Link>
                 </div>
             </div>
         </div>

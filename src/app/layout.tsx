@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";
 import ExerciseProvider from "@/context/ExerciseContext";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <NavBar></NavBar>
           {children}
           <Footer></Footer>
+          <ToastContainer />
         </ExerciseProvider>
       </body>
     </html>

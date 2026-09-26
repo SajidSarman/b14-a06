@@ -4,6 +4,7 @@ import { ExerciseContext } from '@/context/ExerciseContext';
 import { Icard } from '@/typs/card';
 import React, { useContext } from 'react';
 import { FaRegBookmark } from 'react-icons/fa6';
+import { Bounce, toast } from 'react-toastify';
 
 const SaveForLaterButton = ({exercise}: {exercise: Icard}) => {
 
@@ -12,8 +13,18 @@ const SaveForLaterButton = ({exercise}: {exercise: Icard}) => {
     const handlePlanExercise = () => {
         // console.log("blablallakkkajakp", exercise)
         setExerciseSave([...exerciseSave, exercise])
-        
-        alert(`${exercise.name} added to save`)
+
+        toast.success(`${exercise.name} added to save`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+        });
     }
 
     return (
