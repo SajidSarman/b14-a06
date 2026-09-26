@@ -1,6 +1,7 @@
 import React from 'react';
 import bannerImage from "@/assets/banner.png"
 import Image from 'next/image';
+import { FaArrowRight } from 'react-icons/fa6';
 
 const Banner = () => {
     return (
@@ -11,7 +12,12 @@ const Banner = () => {
                 <p className='text-[#c2f800] text-[11px]'>WORKOUT LIBRARY</p>
                 <h2 className='text-[60px]'>TRAIN WITH INTENT. LOG EVERY SET.</h2>
                 <p className='text-gray-400'>FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today's plan, and watch the week's work add up.</p>
-                <button className='bg-[#c2f800] text-black px-5 py-3 rounded-lg mt-5'>BROWSE WORKOUTS</button>
+                <a
+                    href="#library"
+                    className="bg-[#c2f800] text-black px-6 py-3 rounded-xl mt-6 inline-flex items-center justify-center gap-2 hover:bg-[#a3e600] transition-colors shadow-md text-xs font-black tracking-wide cursor-pointer w-fit"
+                >
+                    BROWSE WORKOUTS <FaArrowRight />
+                </a>
             </div>
             <div>
                 <Image src={bannerImage} alt="Banner"></Image>

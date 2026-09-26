@@ -3,7 +3,7 @@ import SaveForLaterButton from '@/components/exercisedetails/SaveForLaterButton'
 import { Icard } from '@/typs/card';
 import Image from 'next/image';
 import React from 'react';
-import { FaRegBookmark } from 'react-icons/fa6';
+// import { FaRegBookmark } from 'react-icons/fa6';
 
 interface IExcerciseDetailsPageProps {
     params: Promise<{
@@ -12,7 +12,8 @@ interface IExcerciseDetailsPageProps {
 }
 
 const getCards = async (): Promise<Icard[]> => {
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog")
+    // const res = await fetch("https://api.abcz.workers.dev/api/fitlog")
+    const res = await fetch("https://api.api-store.workers.dev/api/fitlog")
     const data = await res.json()
     return data
 }
@@ -28,7 +29,7 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 p-6 gap-6">
 
-                <div className="flex items-center justify-center">
+                <div className="flex justify-center items-baseline">
                     <Image
                         src={exercise.image}
                         alt={exercise.name}
@@ -59,38 +60,38 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
 
                         <div className="bg-[#161b22] border border-gray-800 rounded-xl text-xs mb-6 overflow-hidden">
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">EQUIPMENT</span>
+                                <span className="text-gray-400 font-bold ">EQUIPMENT</span>
                                 <span className="text-gray-300 font-medium">{exercise.equipment}</span>
                             </div>
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">DIFFICULTY</span>
+                                <span className="text-gray-400 font-bold ">DIFFICULTY</span>
                                 <span className="text-gray-300 font-medium">{exercise.difficulty}</span>
                             </div>
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">SETS</span>
+                                <span className="text-gray-400 font-bold ">SETS</span>
                                 <span className="text-gray-300 font-medium">{exercise.sets}</span>
                             </div>
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">REPS</span>
+                                <span className="text-gray-400 font-bold ">REPS</span>
                                 <span className="text-gray-300 font-medium">{exercise.reps}</span>
                             </div>
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">DURATION</span>
+                                <span className="text-gray-400 font-bold ">DURATION</span>
                                 <span className="text-gray-300 font-medium">{exercise.duration}</span>
                             </div>
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
-                                <span className="text-gray-500 font-bold tracking-wider">CALORIES</span>
+                                <span className="text-gray-400 font-bold ">CALORIES</span>
                                 <span className="text-gray-300 font-medium">{exercise.caloriesBurned}</span>
                             </div>
                             <div className="flex justify-between items-center p-3">
-                                <span className="text-gray-500 font-bold tracking-wider">RATING</span>
+                                <span className="text-gray-400 font-bold ">RATING</span>
                                 <span className="text-gray-300 font-medium">{exercise.rating}</span>
                             </div>
                         </div>
 
 
                         <div className="mb-6">
-                            <h3 className="text-xs font-bold uppercase text-white mb-2">Instructions</h3>
+                            <h3 className="text-xs font-bold text-white mb-2">INSTRUCTIONS</h3>
                             <ol className="list-decimal list-inside text-xs text-gray-400 space-y-2 ">
                                 {exercise.instructions && exercise.instructions.map((step) => (
                                     <li key={step}>

@@ -4,9 +4,16 @@ import React from 'react';
 import ExerciseCard from '../shared/ExerciseCard';
 
 const getCards = async (): Promise<Icard[]> => {
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog")
-    const data = await res.json()
-    return data
+    try {
+
+        // const res = await fetch("https://api.abcz.workers.dev/api/fitlog")
+        const res = await fetch("https://api.api-store.workers.dev/api/fitlog")
+        const data = await res.json()
+        return data
+    } catch (error) {
+        console.error("API error:", error)
+        return []
+    }
 }
 
 
@@ -14,7 +21,7 @@ const Cards = async () => {
     const CardsData = await getCards()
     console.log(CardsData, "data from cards")
     return (
-        <div className='container mx-auto'>
+        <div id="library" className='container mx-auto scroll-mt-10'>
             <div className='font-bold py-10'>
                 <h1 className='text-[30px]'>THE LIBRARY</h1>
                 <p className='text-[14px] text-[#9ca3af]'>Twelve lifts covering every major muscle group.</p>
