@@ -1,8 +1,10 @@
-import React, { createContext, useState } from 'react';
+"use client";
 
-const ExerciseContext = createContext({})
+import React, { createContext, ReactNode, useState } from 'react';
 
-const ExerciseProvider = ({children}) => {
+export const ExerciseContext = createContext({})
+
+const ExerciseProvider = ({children}: {children: ReactNode}) => {
     const [exercisePlan, setExercisePlan] = useState([])
     const [exerciseSave, setExerciseSave] = useState([])
 

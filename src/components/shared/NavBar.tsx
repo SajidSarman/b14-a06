@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const NavBar = () => {
@@ -31,7 +32,7 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><button className='px-8'>Workouts</button></li>
-                        <li><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></li>
+                        <li><Link href={"/my-plan/"}><button className='px-8 text-[#c2f800] bg-[#1a2312] rounded-full'>My Plan</button></Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-3 mr-5">
