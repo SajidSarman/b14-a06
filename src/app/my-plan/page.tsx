@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React, { useContext, useState } from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { FiClock } from 'react-icons/fi';
-import { MdDone, MdOutlineDoneOutline } from 'react-icons/md';
+import { MdOutlineDoneOutline } from 'react-icons/md';
 import { PiFireSimpleBold } from 'react-icons/pi';
 import { RxCross2 } from 'react-icons/rx';
 import { Bounce, toast } from 'react-toastify';
@@ -22,9 +22,11 @@ const MyPlan = () => {
 
     const [sortBy, setSortBy] = useState<'duration' | 'caloriesBurned' | 'rating'>('duration');
 
+    // for done button
+    const [completedExercises, setCompletedExercises] = useState<number[]>([]);
+
     const currentList = activeTab === 'today' ? exercisePlan : exerciseSave || [];
 
-    // const { exercisePlan, setExercisePlan, exerciseSave, setExerciseSave }: any = useContext(ExerciseContext);
 
     // Calculate total exercises minutes calories
     const totalExercises = currentList.length;
@@ -55,7 +57,7 @@ const MyPlan = () => {
             </div>
 
             {/* total */}
-            <div className="grid grid-cols-3 bg-[#13161d] rounded-xl border border-gray-800 p-4 mb-6 text-left">
+            <div className="grid grid-cols-3 bg-[#151922] rounded-xl border border-gray-800 p-4 mb-6 text-left">
                 <div className="pl-4 py-2">
                     <span className="text-[10px] text-gray-500 font-bold  block mb-1">EXERCISES</span>
                     <span className="text-3xl font-bold text-[#b6ff00]">{totalExercises}</span>
@@ -91,7 +93,7 @@ const MyPlan = () => {
                 </div>
 
                 {/* Sort By */}
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row items-center gap-2">
                     <span className="text-gray-400 text-[10px] font-bold">Sort By</span>
                     <div className="relative bg-[#11141a] border border-gray-800 text-white rounded-xl text-xs font-bold px-3 py-2 cursor-pointer hover:border-gray-700 transition-colors">
                         <select
@@ -104,7 +106,6 @@ const MyPlan = () => {
                             <option value="rating" className="bg-[#11141a]">Rating</option>
                         </select>
 
-                        {/* <FiChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-[10px] pointer-events-none" /> */}
                     </div>
                 </div>
 
@@ -117,8 +118,8 @@ const MyPlan = () => {
                 <div className="flex flex-col gap-3">
                     {sortedList.map((exercise) => {
                         return (
-                            <div key={exercise.id} className="flex items-center justify-between bg-[#11141a] border border-gray-800 rounded-xl p-4 gap-4 w-full">
-
+                            <div key={exercise.id} className="flex flex-col sm:flex-row items-center justify-center sm:justify-between bg-[#151922] border border-gray-800 rounded-xl p-4 gap-4 w-full">
+                            
                                 <div className="flex items-center gap-4">
                                     <div className="w-24 h-14 rounded-lg overflow-hidden">
                                         <Image
@@ -144,7 +145,7 @@ const MyPlan = () => {
                                 </div>
 
                                 {/*Controls */}
-                                <div className="flex items-center gap-2 text-[11px] font-bold">
+                                <div className="flex items-center justify-center gap-2 text-[11px] font-bold">
                                     <Link
                                         href={`/cards/${exercise.id}`}
                                         className="border border-gray-500 text-white py-2 px-4 rounded-xl hover:bg-[#323b46] transition-colors cursor-pointer "
@@ -152,33 +153,47 @@ const MyPlan = () => {
                                         View Details
                                     </Link>
 
-                                    <button
-                                        onClick={() => {
-                                            setExercisePlan(exercisePlan.filter((item: Icard) => item.id !== exercise.id));
+                                    {/* done */}
+                                    {activeTab === 'today' && (
+                                        <button
+                                            onClick={() => {
+                                                const isCompleted = completedExercises.includes(exercise.id);
 
-                                            toast.success(`${exercise.name} marked as done!`, {
-                                                position: "bottom-center",
-                                                autoClose: 3000,
-                                                hideProgressBar: false,
-                                                closeOnClick: false,
-                                                pauseOnHover: true,
-                                                draggable: true,
-                                                progress: undefined,
-                                                theme: "dark",
-                                                transition: Bounce,
-                                            });
-                                        }}
-                                        className="bg-[#b6ff00] text-black py-2 px-4 rounded-xl hover:bg-[#a3e600] transition-colors cursor-pointer shadow-sm flex items-center gap-1"
-                                    >
-                                        <MdOutlineDoneOutline /> Mark as Done
-                                    </button>
+                                                if (isCompleted) {
+                                                    setCompletedExercises(completedExercises.filter(id => id !== exercise.id));
 
+                                                } else {
 
+                                                    setCompletedExercises([...completedExercises, exercise.id]);
+                                                    toast.success(`${exercise.name} marked as done!`, {
+                                                        position: "bottom-center",
+                                                        autoClose: 3000,
+                                                        hideProgressBar: false,
+                                                        closeOnClick: false,
+                                                        pauseOnHover: true,
+                                                        draggable: true,
+                                                        progress: undefined,
+                                                        theme: "dark",
+                                                        transition: Bounce,
+                                                    });
+                                                }
+                                            }}
+                                            className={`py-2 px-4 rounded-xl transition-all cursor-pointer shadow-sm flex items-center gap-1 font-bold ${completedExercises.includes(exercise.id)
+                                                ? 'bg-[#1a2312] text-[#b6ff00] border border-[#b6ff00]'
+                                                : 'bg-[#b6ff00] text-black hover:bg-[#a3e600]'
+                                                }`}
+                                        >
+                                            <MdOutlineDoneOutline />
+                                            {completedExercises.includes(exercise.id) ? 'Completed' : 'Mark as Done'}
+                                        </button>
+                                    )}
+                                    
+                                    {/* delete button */}
                                     <button
                                         onClick={() => {
                                             if (activeTab === 'today') {
                                                 setExercisePlan(exercisePlan.filter((item: Icard) => item.id !== exercise.id));
-                    
+
                                                 toast.warn(`Removed ${exercise.name} from Today's Plan`, {
                                                     position: "bottom-center",
                                                     autoClose: 3000,
@@ -219,7 +234,7 @@ const MyPlan = () => {
                 </div>
             ) : (
                 //fallback
-                <div className="border-2 border-dashed border-gray-600 bg-[#111317] rounded-2xl py-20 flex flex-col items-center justify-center text-center">
+                <div className="border-2 border-dashed border-gray-700 rounded-2xl py-20 flex flex-col items-center justify-center text-center">
                     <h3 className="text-xl font-black text-white mb-1">NOTHING HERE YET</h3>
                     <p className="text-xs text-gray-500 ">
                         Browse the library and add a lift to get today moving.

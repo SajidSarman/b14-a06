@@ -22,7 +22,7 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
     const { id } = await params
     const ExerciseData = await getCards()
     const exercise = ExerciseData.find(exercise => String(exercise.id) === String(id)) as Icard
-    console.log(exercise, 'exercise')
+    // console.log(exercise, 'exercise')
 
     return (
         <div className='container mx-auto p-4 text-gray-200'>
@@ -58,7 +58,7 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
                         </div>
 
 
-                        <div className="bg-[#161b22] border border-gray-800 rounded-xl text-xs mb-6 overflow-hidden">
+                        <div className="bg-[#151922] border border-gray-800 rounded-xl text-xs mb-6 overflow-hidden">
                             <div className="flex justify-between items-center p-3 border-b border-gray-800">
                                 <span className="text-gray-400 font-bold ">EQUIPMENT</span>
                                 <span className="text-gray-300 font-medium">{exercise.equipment}</span>

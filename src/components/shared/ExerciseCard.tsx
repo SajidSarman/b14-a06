@@ -15,7 +15,7 @@ const ExerciseCard = ({ data }: IcardProps) => {
     return (
         <div key={data.id} >
             <Link href={`/cards/${data.id}`}>
-                <div className="w-full overflow-hidden rounded-2xl border border-gray-700 bg-[#15171c] text-white">
+                <div className="w-full overflow-hidden rounded-2xl border border-gray-800 bg-[#151922] text-white">
                     <Image
                         src={data.image}
                         alt={data.name}

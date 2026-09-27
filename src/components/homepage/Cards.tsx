@@ -19,14 +19,14 @@ const getCards = async (): Promise<Icard[]> => {
 
 const Cards = async () => {
     const CardsData = await getCards()
-    console.log(CardsData, "data from cards")
+    // console.log(CardsData, "data from cards")
     return (
         <div id="library" className='container mx-auto scroll-mt-10'>
-            <div className='font-bold py-10'>
+            <div className='font-bold py-8'>
                 <h1 className='text-[30px]'>THE LIBRARY</h1>
                 <p className='text-[14px] text-[#9ca3af]'>Twelve lifts covering every major muscle group.</p>
             </div>
-            <div className='grid grid-cols-3 gap-5 mb-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 px-4 sm:px-0'>
 
                 {
                     CardsData.map((data : Icard) => {

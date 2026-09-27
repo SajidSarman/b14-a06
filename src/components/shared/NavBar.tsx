@@ -13,7 +13,7 @@ const NavBar = () => {
     const pathname = usePathname();
     return (
 
-        <div className="navbar bg-[#0d1117] border-b border-gray-900 shadow-sm font-bold text-xs py-2 px-4 sm:px-6 sticky top-0 z-50">
+        <div className="navbar bg-[#0d1117] border-b border-gray-800 shadow-sm font-bold text-xs py-2 px-4 sm:px-6 sticky top-0 z-50">
 
 
             <div className="navbar-start">

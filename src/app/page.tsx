@@ -5,8 +5,10 @@ import React from 'react';
 const page = () => {
   return (
     <div>
-      <Banner></Banner>
-      <Cards></Cards>
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Banner></Banner>
+        <Cards></Cards>
+      </div>
     </div>
   );
 };
