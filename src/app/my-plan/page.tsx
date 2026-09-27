@@ -16,7 +16,6 @@ const MyPlan = () => {
 
     const { exercisePlan, setExercisePlan, exerciseSave, setExerciseSave } = useContext(ExerciseContext);
 
-    // console.log(exercisePlan, exerciseSave, "exercisePlan", "exerciseSave")
 
     const [activeTab, setActiveTab] = useState<'today' | 'saved'>('today');
 
@@ -60,7 +59,7 @@ const MyPlan = () => {
             <div className="grid grid-cols-3 bg-[#151922] rounded-xl border border-gray-800 p-4 mb-6 text-left">
                 <div className="pl-4 py-2">
                     <span className="text-[10px] text-gray-500 font-bold  block mb-1">EXERCISES</span>
-                    <span className="text-3xl font-bold text-[#b6ff00]">{totalExercises}</span>
+                    <span className="text-3xl font-bold text-[#ccff00]">{totalExercises}</span>
                 </div>
                 <div className="pl-6 py-2">
                     <span className="text-[10px] text-gray-500 font-bold  block mb-1">MINUTES</span>
@@ -179,8 +178,8 @@ const MyPlan = () => {
                                                 }
                                             }}
                                             className={`py-2 px-4 rounded-xl transition-all cursor-pointer shadow-sm flex items-center gap-1 font-bold ${completedExercises.includes(exercise.id)
-                                                ? 'bg-[#1a2312] text-[#b6ff00] border border-[#b6ff00]'
-                                                : 'bg-[#b6ff00] text-black hover:bg-[#a3e600]'
+                                                ? 'bg-[#1a2312] text-[#ccff00] border border-[#ccff00]'
+                                                : 'bg-[#ccff00] text-black hover:bg-[#a3e600]'
                                                 }`}
                                         >
                                             <MdOutlineDoneOutline />
@@ -241,7 +240,7 @@ const MyPlan = () => {
                     </p>
                     <Link
                         href="/"
-                        className="bg-[#b6ff00] text-black font-bold text-xs py-3 px-8 mt-5 rounded-full hover:bg-[#a3e600] transition-colors cursor-pointer"
+                        className="bg-[#ccff00] text-black font-bold text-xs py-3 px-8 mt-5 rounded-full hover:bg-[#a3e600] transition-colors cursor-pointer"
                     >
                         Go to workouts
                     </Link>

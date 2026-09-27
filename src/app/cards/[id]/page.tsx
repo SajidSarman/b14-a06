@@ -3,7 +3,6 @@ import SaveForLaterButton from '@/components/exercisedetails/SaveForLaterButton'
 import { Icard } from '@/typs/card';
 import Image from 'next/image';
 import React from 'react';
-// import { FaRegBookmark } from 'react-icons/fa6';
 
 interface IExcerciseDetailsPageProps {
     params: Promise<{
@@ -50,7 +49,7 @@ const ExcerciseDetailsPage = async ({ params }: IExcerciseDetailsPageProps) => {
                             {exercise.muscleGroups.map((muscle) => (
                                 <span
                                     key={muscle}
-                                    className="rounded-full bg-[#b6ff00] px-3 py-1 text-xs font-black uppercase text-black"
+                                    className="rounded-full bg-[#ccff00] px-3 py-1 text-xs font-black uppercase text-black"
                                 >
                                     {muscle}
                                 </span>

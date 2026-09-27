@@ -29,7 +29,7 @@ const ExerciseCard = ({ data }: IcardProps) => {
                             {data.muscleGroups.map((muscle) => (
                                 <span
                                     key={muscle}
-                                    className="rounded-full bg-[#b6ff00] px-4 py-1 text-sm font-bold uppercase text-black"
+                                    className="rounded-full bg-[#ccff00] px-4 py-1 text-sm font-bold uppercase text-black"
                                 >
                                     {muscle}
                                 </span>

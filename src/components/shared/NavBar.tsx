@@ -29,12 +29,24 @@ const NavBar = () => {
                         tabIndex={-1}
                         className="menu menu-sm dropdown-content bg-[#11141a] border border-gray-800 rounded-xl z-50 mt-3 w-52 p-2 shadow text-gray-400"
                     >
-                        <li><Link href="/" className="hover:text-white">Workouts</Link></li>
-                        <li><Link href="/my-plan" className="hover:text-white">My Plan</Link></li>
+                        <li><Link
+                            href="/"
+                            className={`px-5 py-2 rounded-full font-bold mb-1 transition-all ${pathname === '/'
+                                ? 'text-[#ccff00] bg-[#1a2312]'
+                                : 'text-gray-400 hover:text-white'
+                                }`}
+                        >Workouts</Link></li>
+                        <li><Link
+                            href="/my-plan"
+                            className={`px-5 py-2 rounded-full font-bold transition-all ${pathname === '/my-plan'
+                                ? 'text-[#ccff00] bg-[#1a2312]'
+                                : 'text-gray-400 hover:text-white'
+                                }`}
+                        >My Plan</Link></li>
                     </ul>
                 </div>
 
-                <Link href="/" className="btn btn-ghost text-white text-base font-black tracking-widest uppercase hover:bg-transparent">
+                <Link href="/" className="btn btn-ghost text-white text-base font-black tracking-widest hover:bg-transparent">
 
                     <div className="w-6 h-6 relative overflow-hidden">
                         <Image
@@ -57,7 +69,7 @@ const NavBar = () => {
                         <Link
                             href="/"
                             className={`px-5 py-2 rounded-full font-bold transition-all ${pathname === '/'
-                                ? 'text-[#b6ff00] bg-[#1a2312]'
+                                ? 'text-[#ccff00] bg-[#1a2312]'
                                 : 'text-gray-400 hover:text-white'
                                 }`}
                         >
@@ -68,7 +80,7 @@ const NavBar = () => {
                         <Link
                             href="/my-plan"
                             className={`px-5 py-2 rounded-full font-bold transition-all ${pathname === '/my-plan'
-                                ? 'text-[#b6ff00] bg-[#1a2312]'
+                                ? 'text-[#ccff00] bg-[#1a2312]'
                                 : 'text-gray-400 hover:text-white'
                                 }`}
                         >

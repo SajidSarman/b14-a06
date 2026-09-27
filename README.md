@@ -4,12 +4,13 @@ A simple and fast workout tracking dashboard to browse exercises, plan your dail
 
 ## Live Link
 
-asdf
+https://fitlog-b14-a06-s-sarman.vercel.app/
+
 ## Technologies
 
 - Next.js (App Router)
 - TypeScript
-- Tailwind CSS & daisyUI
+- Tailwind CSS & DaisyUI
 - React Context API
 - React-Toastify
 - React Icons
@@ -17,7 +18,11 @@ asdf
 ## Key Features
 
 - **Live Activity Metrics:** Updates total exercises, minutes, and calories burned automatically as you manage your plan.
-- **Isolated Tabs:** Switch easily between "Today's Plan" and "Saved" workouts.
+
+- **Responsive Design:** Core layouts, navigation bars, and grid cards adjust dynamically across mobile, tablet, and desktop viewports.
+
 - **Instant Actions:** Quick buttons to mark exercises as done, save for later, or remove items.
+
 - **Duplicate Protection:** Prevents adding the same exercise twice with built-in toast warning alerts.
-- **Error Safety:** Built-in safeguards against API crashes and a custom 404 page for broken links.
+
+- **Error Safety:** Built-in safeguards against API crashes(for homepage) and a custom 404 page for broken links.
